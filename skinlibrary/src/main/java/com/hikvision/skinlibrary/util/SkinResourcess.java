@@ -100,6 +100,12 @@ public class SkinResourcess {
     }
 
 
+    /**
+     * 可惜获取到的还是本身的theme
+     *
+     * @param resId
+     * @return
+     */
     public Resources.Theme getTheme(int resId) {
         if (isDefaultSkin) {
             return null;
@@ -109,7 +115,6 @@ public class SkinResourcess {
             return null;
         }
         Resources.Theme newTheme = skinResources.newTheme();
-
         Context context = null;
         try {
             context = mContext.createPackageContext(mSkinPkgName,

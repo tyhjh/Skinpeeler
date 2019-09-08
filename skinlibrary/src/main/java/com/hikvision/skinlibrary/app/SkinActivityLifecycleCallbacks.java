@@ -2,18 +2,13 @@ package com.hikvision.skinlibrary.app;
 
 import android.app.Activity;
 import android.app.Application;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 
 import com.hikvision.skinlibrary.SkinFactory;
 import com.hikvision.skinlibrary.SkinManager;
-import com.hikvision.skinlibrary.util.SkinResourcess;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.HashMap;
 
 import androidx.annotation.NonNull;
@@ -51,25 +46,6 @@ public class SkinActivityLifecycleCallbacks implements Application.ActivityLifec
         //注册观察者
         SkinManager.getInstance().addObserver(skinLayoutFactory);
         mLayoutFactoryMap.put(activity, skinLayoutFactory);
-
-        //对theme进行设置
-        try {
-            ContextThemeWrapper contextThemeWrapper = activity;
-            Method method = ContextThemeWrapper.class.getDeclaredMethod("getThemeResId");
-            method.setAccessible(true);
-            int themeId = (int) method.invoke(contextThemeWrapper);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                activity.setTheme(SkinResourcess.getInstance().getTheme(themeId));
-            } else {
-
-            }
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
 
     }
 

@@ -1,7 +1,6 @@
 package com.hikvision.skinlibrary;
 
 import android.app.Application;
-import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
@@ -65,7 +64,6 @@ public class SkinManager extends Observable {
                 SkinResourcess.getInstance().applySkin(skinRes, packageName);
                 //记录
                 SkinPathDataSource.getInstance().saveSkinPath(path);
-                SkinPathDataSource.getInstance().saveSkinPackage(packageName);
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -15,7 +15,6 @@ public class SkinPathDataSource {
 
     private static final String SKIN_SHARED = "skin-peeler-lib";
     private static final String KEY_SKIN_PATH = "skin-path";
-    private static final String KEY_SKIN_PACKAGE_NAME = "skin-package-name";
     private final SharedPreferences mPref;
 
     private static Application mApplication;
@@ -27,14 +26,6 @@ public class SkinPathDataSource {
 
     public void saveSkinPath(String path) {
         mPref.edit().putString(KEY_SKIN_PATH, path).apply();
-    }
-
-    public void saveSkinPackage(String packagesName) {
-        mPref.edit().putString(KEY_SKIN_PACKAGE_NAME, packagesName).apply();
-    }
-
-    public String getSkinPackage() {
-        return mPref.getString(KEY_SKIN_PACKAGE_NAME, null);
     }
 
     public String getSkinPath() {
