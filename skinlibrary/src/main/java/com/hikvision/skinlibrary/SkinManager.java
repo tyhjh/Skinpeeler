@@ -11,6 +11,7 @@ import com.hikvision.skinlibrary.app.SkinActivityLifecycleCallbacks;
 import com.hikvision.skinlibrary.data.SkinPathDataSource;
 import com.hikvision.skinlibrary.util.SkinResourcess;
 
+import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Observable;
@@ -43,31 +44,46 @@ public class SkinManager extends Observable {
      *
      * @param path 路径为插件包地址，为空则恢复默认
      */
-    public void loadSkin(String path) {
+    public boolean loadSkin(String path) {
         if (TextUtils.isEmpty(path)) {
-            SkinPathDataSource.getInstance().saveSkinPath(null);
-            SkinResourcess.getInstance().reset();
-        } else {
-            try {
-                AssetManager assetManager = AssetManager.class.newInstance();
-                Method method = assetManager.getClass().getMethod("addAssetPath", String.class);
-                method.setAccessible(true);
-                method.invoke(assetManager, path);
-                Resources resources = mApplication.getResources();
-                Resources skinRes = new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
-
-                //获取外部Apk(皮肤包) 包名
-                PackageManager mPm = mApplication.getPackageManager();
-                PackageInfo info = mPm.getPackageArchiveInfo(path, PackageManager
-                        .GET_ACTIVITIES);
-                String packageName = info.packageName;
-                SkinResourcess.getInstance().applySkin(skinRes, packageName);
-                //记录
-                SkinPathDataSource.getInstance().saveSkinPath(path);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            return false;
         }
+
+        File file = new File(path);
+        if (!file.exists()) {
+            return false;
+        }
+        try {
+            AssetManager assetManager = AssetManager.class.newInstance();
+            Method method = assetManager.getClass().getMethod("addAssetPath", String.class);
+            method.setAccessible(true);
+            method.invoke(assetManager, path);
+            Resources resources = mApplication.getResources();
+            Resources skinRes = new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
+
+            //获取外部Apk(皮肤包) 包名
+            PackageManager mPm = mApplication.getPackageManager();
+            PackageInfo info = mPm.getPackageArchiveInfo(path, PackageManager
+                    .GET_ACTIVITIES);
+            String packageName = info.packageName;
+            SkinResourcess.getInstance().applySkin(skinRes, packageName);
+            //记录
+            SkinPathDataSource.getInstance().saveSkinPath(path);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        setChanged();
+        notifyObservers();
+        return true;
+    }
+
+    /**
+     * 清除换肤，恢复默认
+     */
+    public void clearSkin() {
+        SkinPathDataSource.getInstance().saveSkinPath(null);
+        SkinResourcess.getInstance().reset();
         setChanged();
         notifyObservers();
     }

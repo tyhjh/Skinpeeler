@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/themebg"
+    android:background="?attr/bgColor"
     android:orientation="vertical">
 
 
@@ -19,7 +19,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:background="@color/theme_main"
+                android:background="?attr/itemBgColor"
                 android:orientation="horizontal"
                 android:padding="20dp">
 
@@ -29,7 +29,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="进行换肤"
-                    android:textColor="@color/theme_txt" />
+                    android:textColor="?attr/textColor" />
 
                 <Switch
                     android:id="@+id/switchSkin"
@@ -44,7 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:background="@color/theme_main"
+                android:background="?attr/itemBgColor"
                 android:orientation="horizontal"
                 android:padding="20dp">
 
@@ -52,14 +52,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="分数截图保存地址"
-                    android:textColor="@color/theme_txt" />
+                    android:textColor="?attr/textColor" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
                     android:text="/ANana/grade"
-                    android:textColor="@color/theme_txt" />
+                    android:textColor="?attr/textColor" />
 
             </LinearLayout>
 
@@ -69,7 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:background="@color/theme_main"
+                android:background="?attr/itemBgColor"
                 android:orientation="horizontal"
                 android:padding="20dp">
 
@@ -77,11 +77,11 @@
                     android:id="@+id/tvSkinDefault"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="恢复默认"
-                    android:textColor="@color/theme_txt" />
+                    android:text="Android主题更换"
+                    android:textColor="?attr/textColor" />
 
                 <Switch
-                    android:id="@+id/swWx"
+                    android:id="@+id/swTheme"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false" />
@@ -93,7 +93,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:background="@color/theme_main"
+                android:background="?attr/itemBgColor"
                 android:orientation="horizontal"
                 android:padding="20dp">
 
@@ -101,7 +101,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="回复内容"
-                    android:textColor="@color/theme_txt" />
+                    android:textColor="?attr/textColor" />
 
                 <View
                     android:layout_width="0dp"
@@ -116,7 +116,7 @@
                     android:gravity="right"
                     android:singleLine="true"
                     android:text="主人暂时不在呢 --Nana"
-                    android:textColor="@color/theme_txt" />
+                    android:textColor="?attr/textColor" />
 
             </LinearLayout>
 
@@ -126,7 +126,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:background="@color/theme_main"
+                android:background="?attr/itemBgColor"
                 android:orientation="horizontal"
                 android:padding="20dp">
 
@@ -134,7 +134,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="APP自动安装"
-                    android:textColor="@color/theme_txt" />
+                    android:textColor="?attr/textColor" />
 
                 <Switch
                     android:id="@+id/swInstall"
@@ -150,7 +150,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:background="@color/theme_main"
+                android:background="?attr/itemBgColor"
                 android:clickable="true"
                 android:orientation="horizontal"
                 android:padding="20dp">
@@ -159,7 +159,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="跳过广告页"
-                    android:textColor="@color/theme_txt" />
+                    android:textColor="?attr/textColor" />
 
                 <Switch
                     android:id="@+id/swSkip"
@@ -175,7 +175,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:background="@color/theme_main"
+                android:background="?attr/itemBgColor"
                 android:orientation="horizontal"
                 android:padding="20dp">
 
@@ -184,7 +184,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="下载皮肤包"
-                    android:textColor="@color/theme_txt" />
+                    android:textColor="?attr/textColor" />
 
                 <TextView
                     android:id="@+id/tv_version"
@@ -192,7 +192,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="right"
                     android:text="version 1.0"
-                    android:textColor="@color/theme_txt" />
+                    android:textColor="?attr/textColor" />
 
             </LinearLayout>
 
@@ -202,7 +202,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_bg" />
+                android:src="?attr/showImg" />
 
         </LinearLayout>
 

@@ -171,6 +171,9 @@
     <color name="black">#000000</color>
     <color name="text_gray">#757575</color> <!-- 黑色 -->
 
+    <color name="black_light">#555555</color> <!-- 暗灰色 -->
+
+
 
     <color name="triangle">#aa72d572</color>
     <color name="circle">#aa738ffe</color>
