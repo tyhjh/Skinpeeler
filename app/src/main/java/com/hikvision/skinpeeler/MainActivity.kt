@@ -49,15 +49,20 @@ class MainActivity : AppCompatActivity() {
      */
     private lateinit var swTheme: Switch
 
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val themeStatus = SharedPreferencesUtil.getBoolean(androidThemeKey, false)
+        //设置主题
         if (themeStatus) {
             setTheme(R.style.AppTheme)
         } else {
             setTheme(R.style.AppTheme2)
         }
         setContentView(R.layout.activity_main)
+
 
         //复制文件
         val file = File(skinPath)
@@ -81,7 +86,7 @@ class MainActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 0)
         }
 
-        switchJump.setOnClickListener { v ->
+        switchJump.setOnClickListener {
             var isChecked = switchJump.isChecked
             if (isChecked) {
                 if (SkinManager.getInstance().loadSkin(skinPath)) {
@@ -97,7 +102,6 @@ class MainActivity : AppCompatActivity() {
             }
             SharedPreferencesUtil.save(skinChangedKey, isChecked)
         }
-
     }
 
 

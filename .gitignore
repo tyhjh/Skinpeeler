@@ -28,7 +28,7 @@ Temporary Items
 .apdisk
 ### Android template
 # Built application files
-*.apk
+#*.apk
 *.ap_
 
 # Files for the ART/Dalvik VM
@@ -114,3 +114,9 @@ fingersm2blibrary/src/androidTest/java/
 fingersm2blibrary/src/main/java/com/example/fingersm2blibrary/
 fingersm2blibrary/src/main/res/
 fingersm2blibrary/src/test/
+app/libs/
+app/src/main/assets/
+skinlibrary/libs/
+skinlibrary/src/androidTest/
+skinlibrary/src/main/res/drawable/
+skinlibrary/src/test/
